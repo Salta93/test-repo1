@@ -1,1 +1,17 @@
+print("Добро пожаловать, просим принять участие в опросе и заполнить анкету")
 
+first_name = input("Введите ваше имя: ")
+last_name = input("Введите вашу фамилию: ")
+year_of_date = input("Введите год вашего рождения: ")
+courses_like = input("Нравится ли вам курс?")
+client_wish = input("Что вы ожидаете в дальнейших занятиях?")
+
+full_name = first_name + " " + last_name
+client_age = 2023 - int(year_of_date)
+
+print(" ")
+print("Вы заполнили такие данные:")
+print("Вас зовут:", full_name)
+print("Вам", client_age, "лет")
+print("Ваш ответ к первому вопросу:", courses_like)
+print("Ваш ответ к первому вопросу:", client_wish)
