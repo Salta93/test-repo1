@@ -1,0 +1,83 @@
+import math
+
+print('''Available options: 
+1. a + b
+2. a - b
+3. a * b 
+4. a % b
+5. Fibonacci number
+6. Exit
+''')
+
+def sum_of_numbers_1(x,y):
+    ans = x + y
+    print ("Answer a + b: ", ans)
+    return ans
+
+def difference_of_numbers_2(x,y):
+    ans = x - y
+    print ("Answer a - b: ", ans)
+    return ans
+
+def multiplication_of_numbers_3(x,y):
+    ans = x * y
+    print ("Answer a * b: ", ans)
+    return ans
+
+def division_of_numbers_4(x,y):
+    ans = x / y
+    print ("Answer a / b: ", ans)
+    return ans
+
+
+def degree_numbers_5(x,y):
+    ans = x ** y
+    print ("Answer Fibonacci number: ", ans)
+
+
+"""
+def Fibonacci(n):
+    n = int(input(n))
+    if n < 0:
+        print("Incorrect input")
+
+    # Check if n is 0
+    # then it will return 0
+    elif n == 0:
+        return 0
+
+    elif n == 1 or n == 2:
+        return 1
+
+    else:
+        return Fibonacci(n - 1) + Fibonacci(n - 2)
+
+    print("Fibonacci number is:" )
+    print(n)
+"""
+
+option_number = int(input("Enter option: "))
+while option_number not in [1,2,3,4,5]:
+    print ("Вы ввели некорректное значение. Повторите попытку ")
+    exit()
+
+a = input("insert a: ")
+b = input("insert b: ")
+try:
+    a = int(a)
+    b = int(b)
+
+except:
+    print ("Вы ввели строку, введите число чтобы продолжить пользоваться калькулятором")
+    exit()
+
+if option_number == 1:
+    ans = sum_of_numbers_1(a, b)
+if option_number == 2:
+    ans = difference_of_numbers_2(a, b)
+if option_number == 3:
+    ans = multiplication_of_numbers_3(a, b)
+if option_number == 4:
+    ans = division_of_numbers_4(a, b)
+if option_number == 5:
+    ans = degree_numbers_5(a, b)
