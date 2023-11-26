@@ -1,0 +1,99 @@
+users = []
+
+def create_user(user: dict) -> None:
+    if get_user_by_email(user['email']):
+        print('user already exist!!!')
+
+    if password.__len__() <= 8:
+            print("Password should be longer")
+
+    users.append(user)
+    print('user created!')
+
+def get_user_by_email(email: str) -> dict | None:
+    for user in users:
+        if user.get('email') != email:
+            continue
+
+        return user
+
+def update_user_by_email(email:str, data:dict) -> dict:
+    user = get_user_by_email(email)
+
+    if user is None:
+        return None
+
+    user.update(data)
+    print('user is updated!!!')
+
+    return user
+
+def delete_user_by_email(email: str) -> None:
+    user = get_user_by_email(email)
+
+    if user is None:
+        return None
+
+    users.remove(user)
+    print('user deleted!!!')
+
+while True:
+    action = input('Сhoose one option: ')
+
+    #create user
+    if action == '1':
+        name = input("Name: ")
+        last_name = input("Surname: ")
+        age = int(input("Age: "))
+        address = input("Address: ")
+        email = input("Email: ")
+        password = input("Password: ")
+
+
+        user = {
+        'name': name,
+        'last_name': last_name,
+        'age' : age,
+        'address': address,
+        'email': email,
+        'password': password
+        }
+
+
+        create_user(user)
+        print(users)
+
+    elif action == "2":
+        print("List of users")
+        print(users)
+
+    elif action == '3':
+        email = input("Email: ")
+
+        if email in users:
+            delete_user_by_email(user)
+        print('user deleted!!!')
+
+    elif action == "4":
+        print("Authorization")
+        email = input("Email: ")
+        password = input("Password: ")
+
+        user = {
+            'name': name,
+            'last_name': last_name,
+            'age': age,
+            'address': address,
+            'email': email,
+            'password': password
+        }
+
+        for user in users:
+            print("Hello," + user["name"])
+
+
+    elif action == "5":
+        print("Good Bye")
+
+    else:
+        print('invalid action')
